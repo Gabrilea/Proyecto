@@ -1,0 +1,7 @@
+{
+  "name": "PROVEEDOR",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="success">
+          <ion-row>
+              <ion-col></ion-col>
+              <ion-col><img src="../../assets/imagenes/carro.png" id="imagen" alt=""></ion-col>
+              <ion-col></ion-col>
+          </ion-row>
+          <ion-buttons slot="start">
+              <ion-back-button defaultHref="/proveedor/home">
+              </ion-back-button>
+              </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1 class="text"><b>Reportar problemas</b></h1>
+  <br>
+  
+  <ion-list>
+      <ion-row class="ion-padding-start">
+          <ion-label style="color: dimgray;">Tipo de problema</ion-label>
+      </ion-row>
+      <br>
+
+      <ion-card>
+          <ion-item>
+              <ion-input></ion-input>
+          </ion-item>
+      </ion-card>
+      <br>
+      <br>
+      <ion-row class="ion-padding-start">
+          <ion-label style="color: dimgray;">Descripción </ion-label>
+      </ion-row>
+      <br>
+      <ion-card>
+          <ion-item>
+              <ion-input></ion-input>
+          </ion-item>
+      </ion-card>
+      <br>
+      
+      <ion-row class="ion-padding-start">
+          <ion-label style="color: dimgray;">Evidencia</ion-label>
+      </ion-row>
+      <br>
+      <div style=" display: flex; align-items: center; justify-content: center;">
+      <ion-buttons>
+          <ion-button>
+            <label for="file-upload" class="subir">
+             <i class="fas fa-cloud-upload-alt"></i> SUBIR DE GALERIA
+             <ion-icon slot="end" name="images"></ion-icon>
+         </label>
+         <input id="file-upload" (change)="fileChange($event)" type="file" style='display: none;' > 
+          </ion-button>
+      </ion-buttons>
+    </div>
+      <img *ngIf="img1" [src]="img1" >
+  </ion-list>
+  <br>
+  <br>
+  <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+          <ion-button color="light" style="color: black ;" (click)="presentLoading()">Enviar</ion-button>
+      </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer class="tab"><br></ion-footer>

@@ -1,0 +1,99 @@
+<!-- Aquí es donde el proveedor registra su establecimiento para entrar la primera vez -->
+
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col><img src="../../assets/imagenes/carro.png" id="imagen" alt=""></ion-col>
+      <ion-col></ion-col>
+  </ion-row>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-content>
+  
+  
+    <img src="../../../assets/imagenes/Recurso 6.png"  class="icon6">
+    <img src="../../../assets/imagenes/Recurso 7.png"  class="icon6">
+    <img src="../../../assets/imagenes/Recurso 9.png"  class="icon6">
+
+  <br>
+  <br>
+  <ion-label class="texto"><h2><strong>REGISTRA TU ESTABLECIMIENTO</strong></h2></ion-label>
+  <br>
+  
+  <ion-label><h3 class="ion-padding-start" style="color: darkgrey;">*campos oligatorios</h3></ion-label>
+     
+       <div style=" display: flex; align-items: center; justify-content: center;">
+      <ion-card class="p">
+         <ion-card-content>  
+           <img *ngIf="img1" [src]="img1" >
+           <label for="file-upload" class="subir">
+            <i class="fas fa-cloud-upload-alt"></i> Subir imagen  del establecimiento
+            <ion-icon name="camera" color="white" ></ion-icon>
+        </label>
+        <input id="file-upload" (change)="fileChange($event)" type="file" style='display: none;'   [(ngModel)]="archivo"/>
+         </ion-card-content>
+       </ion-card>
+       </div>
+    
+
+      <ion-row class="ion-padding-start"><ion-label>*Nombre del establecimiento:</ion-label></ion-row>
+  <ion-row class="ion-padding-start" id="dos">
+    <ion-input class="uno" [(ngModel)]="nombre"></ion-input>
+</ion-row>
+
+    <ion-row class="ion-padding-start"><ion-label>*Giro:</ion-label></ion-row>
+  <ion-row class="ion-padding-start" id="dos">
+    <ion-input class="uno" [(ngModel)]="giro"></ion-input>
+</ion-row>
+
+  <br>
+
+  <ion-row><ion-label><h3 class="ion-padding-start">*Dirección del establecimiento:</h3></ion-label></ion-row>
+  <ion-row class="ion-padding-start" id="dos">
+    <ion-input class="uno" [(ngModel)]="direccion"></ion-input>
+</ion-row>
+
+<br>
+<ion-list>
+  <ion-item *ngFor="let location of locationTrace">
+    <ion-label class="ion-text-wrap">
+    <ion-label>Time: {{location.timestamp | date:'M/d/yy, h:mm:ss a'}}</ion-label>
+    <ion-label>Latitude:{{location.latitude}} longitude:{{location.longitude}}</ion-label>
+    <ion-label>Acurracy:{{location.acurracy}}</ion-label>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<div class="ion-text-center">
+  <ng-container *ngIf="!locationWatchStarted; else elseTemplate">
+    <ion-button color="light" (click)= getCordinates()>*¡Aquí está mi negocio!</ion-button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    ¡¡Aquí está mi ubicación!!
+  </ng-template>
+</div>
+
+  <hr>
+
+<ion-row><ion-label><h3 class="ion-padding-start">Comprobante de domicilio</h3></ion-label></ion-row>
+  <ion-row class="ion-padding-start" id="dos">
+    <ion-input type="file" class="uno" [(ngModel)]="comprobante1"></ion-input>
+</ion-row>
+
+<br>
+
+<ion-row><ion-label><h3 class="ion-padding-start">Comprobante de operatibilidad</h3></ion-label></ion-row>
+  <ion-row class="ion-padding-start" id="dos">
+    <ion-input type="file" class="uno" [(ngModel)]="comprobante2"></ion-input>
+</ion-row>
+
+
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col><ion-button color="light" href="/ingresa-productos" (click)="vervalue()">SIGUIENTE</ion-button></ion-col>
+  </ion-row>
+
+</ion-content>

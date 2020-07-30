@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="success">
+          <ion-row>
+              <ion-col></ion-col>                
+              <ion-col><img src="../../assets/imagenes/carro.png" id="imagen" alt=""></ion-col>
+              <ion-col></ion-col>
+          </ion-row>
+          <ion-buttons slot="start">
+              <ion-back-button defaultHref="/principal">
+              </ion-back-button>
+              </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-row class="ion-padding-start">
+      <h1 style="color: dimgray;">Ingresar</h1>
+  </ion-row>
+
+  <br><br><br>
+
+  <ion-row class="ion-padding-start">
+      <ion-label style="color: dimgray;">Usuario:</ion-label>
+  </ion-row>
+  <br>
+  <ion-card>
+  <ion-item>
+  <ion-input [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+  </ion-card>
+  <br>
+  <br>
+  <ion-row class="ion-padding-start">
+      <ion-label style="color: dimgray;"  >Contraseña:</ion-label>
+  </ion-row>
+  <br>
+
+  <ion-card>
+      <ion-item>
+          <ion-input name="Contraseña" placeholder="" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="contra"></ion-input>
+          <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+      </ion-item>
+  </ion-card>
+  
+  <h5 class="text"><u style="color: dimgray;" routerLink="/olvide-password" >¿Olvidaste tu contraseña?</u></h5>
+  <br>
+  <br>
+  <br>
+  
+
+  <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+          <ion-button href="/establecimientos" color="light" style="color: black ;">Aceptar</ion-button>
+      </ion-col>
+  </ion-row>
+</ion-content>

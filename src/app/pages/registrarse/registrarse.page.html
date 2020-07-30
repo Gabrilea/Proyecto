@@ -1,0 +1,137 @@
+<ion-header>
+    <ion-toolbar color="success">
+    <ion-row>
+    <ion-col></ion-col> 
+    <ion-col>
+    <img src="../../assets/imagenes/carro.png" id="imagen" alt="">
+    </ion-col>
+    <ion-col></ion-col>
+    </ion-row>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref="/">
+    </ion-back-button>
+    </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<br>
+<br>
+<ion-row class="ion-padding-start">
+    <ion-label style="color: rgb(22, 21, 21);">Ingrese sus datos</ion-label>
+
+    <h6 style="color:rgba(207, 211, 224, 0.897)">Todos los campos son obligatorios</h6>
+</ion-row>
+
+<ion-content>
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()" (click)="onSubmit()">
+    <div class="list">
+        <ion-card>
+            <ion-item>
+                <ion-input required name="Nombres" placeholder="Nombres" type="text" [(ngModel)]="usuario.nombre"></ion-input>
+            </ion-item>
+        </ion-card>
+
+        <ion-row>
+            <ion-col>
+                <ion-row class="ion-padding-start"><ion-label style="color: dimgray;">Apellidos:</ion-label></ion-row>
+                <ion-card>
+                    <ion-row class="ion-padding-start" id="pe">
+                        <ion-input  required name="apellidos" placeholder="Paterno" type="text" [(ngModel)]="usuario.paterno"></ion-input>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+
+            <ion-col>
+                <ion-row class="ion-padding-start"><ion-label><br></ion-label></ion-row>
+                <ion-card>
+                    <ion-row class="ion-padding-start"></ion-row>
+                    <ion-row class="ion-padding-start">
+                        <ion-input  required name="apellidos" placeholder="Materno" type="text" [(ngModel)]="usuario.materno"></ion-input>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-card>
+            <ion-item>
+                <ion-input  required name="Telefono" placeholder="Telefono" type="number" [(ngModel)]="usuario.tele"></ion-input>
+            </ion-item>
+
+        </ion-card>
+
+        <form [formGroup]="loginForm">
+            <ion-card>
+                <ion-item>
+                    <ion-input required formControlName="userEmail" type="email" name="email" placeholder="Correo electrónico" type="text" 
+                     [(ngModel)]="usuario.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="loginFormValidator.userEmail.empty">
+                    <ion-label text-wrap color="danger">
+                    {{ loginFormValidator.userEmail.empty }}
+                    </ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="loginFormValidator.userEmail.email">
+                    <ion-label text-wrap color="danger">
+                    {{ loginFormValidator.userEmail.email }}
+                    </ion-label>
+                    </ion-item>
+            </ion-card>
+
+            <ion-card>
+                <ion-item class="form-control">
+                    <ion-input  required formControlName="userPassword" type="password" [(ngModel)]="loginFormValidator.userPassword.password" name="Contraseña" placeholder="Password" [type]="showPassword ? 'text' : 'password'"
+                    [(ngModel)]="usuario.password"></ion-input>
+                    <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+                </ion-item>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-item class="form-control" >
+                    <ion-input required  formControlName="userPassword2" type="password" [(ngModel)]="loginFormValidator.userPassword2.password" name="validacion" placeholder="Validar contraseña" [type]="mostarValidacion ? 'text' : 'password'"
+                    [(ngModel)]="usuario.password2"></ion-input>
+                    <ion-icon slot="end" [name]="validacionToggleIcon" (click)="toggleValidacion()"></ion-icon>
+                </ion-item>
+            </ion-card>
+
+            <ion-item *ngIf="loginFormValidator.userPassword.empty">
+                <ion-label text-wrap color="danger">
+                  {{ loginFormValidator.userPassword.empty }}
+                </ion-label>
+              </ion-item>
+              <ng-container *ngIf="loginFormValidator.userPassword2.password; else elseTemplate">
+                <ion-label text-wrap color="danger">
+                  {{ loginFormValidator.userPassword.mensaje}}
+                  </ion-label>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <ion-label text-wrap color="danger">
+                  {{ loginFormValidator.userPassword.mensaje}}
+                  </ion-label>
+              </ng-template>
+        </form>
+
+        
+
+        
+
+        <br>
+        <ion-row class="ion-padding-start">
+            <ion-label style="color: dimgray;">Identificación</ion-label>
+        </ion-row>
+        <ion-card>
+            <ion-item>
+                <ion-input required  name="identificacion" type="File" style="color: dimgray;"></ion-input>
+            </ion-item>
+        </ion-card>
+        <br>
+        <br>    
+
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+            <ion-col>
+                <ion-button  [disabled]="formulario.invalid" color="light" (click)="presentAlert()" type="submit">Enviar</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</form>
+</ion-content>
