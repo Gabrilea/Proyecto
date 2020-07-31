@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/olvide-password/olvide-password.module').then( m => m.OlvidePasswordPageModule)
   },
   {
-    path: 'establecimientos',
-    loadChildren: () => import('./pages/establecimientos/establecimientos.module').then( m => m.EstablecimientosPageModule)
-  },
-  {
     path: 'ingresa-productos',
     loadChildren: () => import('./pages/ingresa-productos/ingresa-productos.module').then( m => m.IngresaProductosPageModule)
   },
@@ -70,6 +66,18 @@ const routes: Routes = [
   {
     path: 'registrarse',
     loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
+  },
+  {
+    path: 'registra-establecimiento',
+    loadChildren: () => import('./pages/registra-establecimiento/registra-establecimiento.module').then( m => m.RegistraEstablecimientoPageModule)
+  },
+  {
+    path: 'tarjeta',
+    loadChildren: () => import('./pages/tarjeta/tarjeta.module').then( m => m.TarjetaPageModule)
+  },
+  {
+    path: 'efectivo',
+    loadChildren: () => import('./pages/efectivo/efectivo.module').then( m => m.EfectivoPageModule)
   }
 ];
 

@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-establecimientos',
-  templateUrl: './establecimientos.page.html',
-  styleUrls: ['./establecimientos.page.scss'],
+  selector: 'app-registra-establecimiento',
+  templateUrl: './registra-establecimiento.page.html',
+  styleUrls: ['./registra-establecimiento.page.scss'],
 })
-export class EstablecimientosPage implements OnInit {
+export class RegistraEstablecimientoPage implements OnInit {
 
   
   locationWatchStarted:boolean;
