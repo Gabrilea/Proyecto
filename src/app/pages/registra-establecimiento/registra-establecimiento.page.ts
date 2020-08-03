@@ -3,7 +3,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import {LoadingController} from '@ionic/angular';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-registra-establecimiento',
   templateUrl: './registra-establecimiento.page.html',
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class RegistraEstablecimientoPage implements OnInit {
 
-  
   locationWatchStarted:boolean;
   locationSubscription:any;
   locationTrace=[];
@@ -65,9 +63,23 @@ export class RegistraEstablecimientoPage implements OnInit {
 
   vervalue(){
    
-    console.log(this.nombre, this.archivo, this.giro, this.direccion, this.comprobante1, this,this.comprobante2);
-    
+    // console.log(this.nombre, this.archivo, this.giro, this.direccion, this.comprobante1, this,this.comprobante2);
+
+    var data = [
+      this.img1,
+      this.nombre,
+      this.giro,
+      this.direccion,
+      this.locationTrace,
+      this.comprobante1,
+      this.comprobante2,
+     ]
+    var guardar=localStorage.setItem('guardar',JSON.stringify(data));
+    console.log(this.obtener);
   }
+
+  obtener=JSON.parse(localStorage.getItem('guardar'));
+
   img1:any;
 
   fileChange(event){
@@ -83,9 +95,4 @@ export class RegistraEstablecimientoPage implements OnInit {
       let file: File = fileList[0];
       console.log(file);
   }
-        
-  
-  
-
-
 }
