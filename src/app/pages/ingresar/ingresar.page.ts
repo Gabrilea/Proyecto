@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LoadingController} from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 @Component ({
@@ -15,7 +15,7 @@ export class IngresarPage implements OnInit {
   usuario:string;
   contra:string;
 
-  constructor( private loadingCtrl:LoadingController) { }
+  constructor( private loadingCtrl:LoadingController, private navcrlt:NavController) { }
 
   ngOnInit() {
 
@@ -42,6 +42,14 @@ async presentLoading(message:string){
 
 ionViewWillLeave(){
   this.presentLoading('Espere');
+}
+
+validacion(){
+  if(this.usuario =='Gabrilea'){
+    this.navcrlt.navigateForward('/proveedor/home');
+} else {
+this.navcrlt.navigateForward('/registra-establecimiento');
+}
 }
 
 }
